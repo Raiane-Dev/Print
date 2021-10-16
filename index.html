@@ -1,0 +1,57 @@
+<html>
+    <head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body bgcolor="black">
+<div id="wholebody">  
+<a href="javascript:genScreenshotgraph()"><button style="background:aqua; cursor:pointer">Get Screenshot of Cars onl </button> </a>
+
+<div id="car">
+    <i class="fa fa-car" style="font-size:70px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:60px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:50px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:20px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:50px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:60px;color:red;"></i>
+    <i class="fa fa-car" style="font-size:70px;color:red;"></i>
+</div>
+<br>
+<div id="container" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<div id="box1">
+</div>
+</div>>
+</body>
+
+<script>
+
+function genScreenshotgraph() 
+{
+    html2canvas($('#car'), {
+        
+      onrendered: function(canvas) {
+
+        var imgData = canvas.toDataURL("image/jpeg");
+        var pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0, -180, -180);
+        pdf.save("download.pdf");
+        
+      
+      
+      }
+     });
+
+}
+
+</script>
+
+</html>
